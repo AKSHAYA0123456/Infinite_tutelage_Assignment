@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Ditch Dollar</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li>Dashboard</li>
+                    <li>CRM</li>
+                    <li>MAM</li>
+                    <li>PAMM</li>
+                    <li>Trade</li>
+                    <li>Wallet</li>
+                    <li>Accounts</li>
+                    <li>History</li>
+                </ul>
+            </nav>
+            <div class="profile">
+                <div class="profile-info">
+                    <i class="fas fa-user-circle"></i>
+                    <div>
+                        <p>Shyam Shakur</p>
+                        <p>shyam01.shankur@mail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <h1>Dashboard</h1>
+            <header class="top-bar">
+                <input type="search" placeholder="Search...">
+            </header>
+            <section class="dashboard">
+                <h1>Quick Links</h1>
+                <div class="quick-links">
+                    <div class="quick-link">Deposit</div>
+                    <div class="quick-link">Withdraw</div>
+                    <div class="quick-link">Settings</div>
+                    <div class="quick-link">Verification</div>
+                    <div class="quick-link">Bonuses</div>
+                    <div class="quick-link">MT5</div>
+                    <div class="quick-link">Transfer</div>
+                    <div class="quick-link">History</div>
+                    <div class="quick-link">Partner</div>
+                    <div class="quick-link">Exchange</div>
+                    <div class="quick-link">Analytics</div>
+                </div>
+                <div class="overview">
+                    <div class="overview-header">
+                        <h2>Overview</h2>
+                        <div class="overview-buttons">
+                            <button>Monthly</button>
+                            <button>Yearly</button>
+                        </div>
+                    </div>
+                    <div class="overview-chart">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <div class="download-report">
+                        <button>Download Report</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <aside class="right-sidebar">
+            <div class="trading-accounts">
+                <h3>Trading Accounts</h3>
+                <div class="account">
+                    <p>Master Account</p>
+                    <p>#273728</p>
+                    <p>$0.00 USD</p>
+                </div>
+                <div class="account">
+                    <p>Master Account</p>
+                    <p>#273728</p>
+                    <p>$0.00 USD</p>
+                </div>
+            </div>
+            <div class="open-trades">
+                <h3>Open Trades</h3>
+                <div class="trade">
+                    <p>GBP/USD <span class="status">Long</span><br> +$6.00 USD</p>
+                </div>
+                <div class="trade">
+                    <p>USD/JPY <span class="status">Long</span><br> -$0.09 USD</p>
+                </div>
+                <div class="trade">
+                    <p>EUR/USD <span class="status">Short</span><br> -$1.09 USD</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Script to render the Bar Chart -->
+    <script>
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [12, 19, 3, 5, 2, 3, 9, 15, 20, 18, 12, 10],
+                    backgroundColor: '#5b3c99', // Purple color
+                    borderColor: 'rgba(128, 0, 128, 1)',
+                    borderWidth: 1,
+                    borderRadius: 5,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false // Remove background grid lines
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false // Remove background grid lines
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
